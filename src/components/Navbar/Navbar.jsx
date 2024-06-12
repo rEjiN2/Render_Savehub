@@ -91,17 +91,17 @@ const Navbar = () => {
            </div>
            <div className={`pl-4 ${isOpen ? '' : 'hidden'}`}>
             <Link href='/clothing/mens'>
-             <div className='py-2'>Men</div>
+             <div className='py-2 cursor-pointer'>Men</div>
              </Link>
              <Link href='/clothing/womens'>
-             <div className='py-2'>Women</div>
+             <div className='py-2 cursor-pointer'>Women</div>
              </Link>
            </div>
            <Link href='/accessories'>
-           <div className='py-2'>Accessories</div>
+           <div className='py-2 cursor-pointer'>Accessories</div>
            </Link>
            <Link href='/electronics'>
-           <div className='py-2'>Electronics</div>
+           <div className='py-2 cursor-pointer'>Electronics</div>
            </Link>
          </div>
        </div>
