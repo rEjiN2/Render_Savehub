@@ -90,11 +90,19 @@ const Navbar = () => {
              </button>
            </div>
            <div className={`pl-4 ${isOpen ? '' : 'hidden'}`}>
+            <Link href='/clothing/mens'>
              <div className='py-2'>Men</div>
+             </Link>
+             <Link href='/clothing/womens'>
              <div className='py-2'>Women</div>
+             </Link>
            </div>
+           <Link href='/accessories'>
            <div className='py-2'>Accessories</div>
+           </Link>
+           <Link href='/electronics'>
            <div className='py-2'>Electronics</div>
+           </Link>
          </div>
        </div>
       )}
