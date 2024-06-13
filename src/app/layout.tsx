@@ -21,13 +21,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-       <Head>
+       <head>
         <link rel='icon' href='/favicon.ico'  />
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7754509675429128"
      crossOrigin="anonymous"></script>
+     
       <meta name="google-adsense-account" content="ca-pub-7754509675429128"></meta>
       <meta name="savehub" content="Lootdeals in save save upto 90% off on all product" />
-      </Head>
+      </head>
       
       <body className={kanit.className}>
        <div  className="bg-[url('/skybg.jpg')] h-screen flex flex-col justify-between  overflow-auto">
