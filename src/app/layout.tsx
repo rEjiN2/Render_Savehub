@@ -24,7 +24,7 @@ export default function RootLayout({
        <Head>
         <link rel='icon' href='/favicon.ico'  />
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7754509675429128"
-     crossorigin="anonymous"></script>
+     crossOrigin="anonymous"></script>
       <meta name="google-adsense-account" content="ca-pub-7754509675429128"></meta>
       <meta name="savehub" content="Lootdeals in save save upto 90% off on all product" />
       </Head>
