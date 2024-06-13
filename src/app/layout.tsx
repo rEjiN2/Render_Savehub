@@ -31,7 +31,7 @@ export default function RootLayout({
       
      
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <meta name="keywords" content="savehub, deals, discounts, save money, loot deals, offers, shopping" />
+      <meta name="keywords" content="savehub, save hub ,deals, discounts, save money, loot deals, offers, shopping" />
       <meta name="author" content="Savehub Team" />
       <meta property="og:title" content="Savehub - Save Your Money"/>
       <meta property="og:description" content="Savehub helps you save money with loot deals and discounts on various products."/>
