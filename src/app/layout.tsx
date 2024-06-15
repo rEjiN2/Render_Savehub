@@ -38,14 +38,14 @@ export default function RootLayout({
       <meta name="author" content="Savehub Team" />
       <meta property="og:title" content="Savehub - Save Your Money with exclusive discounts and deals"/>
       <meta property="og:description" content="Savehub helps you save money with loot deals and discounts on various products."/>
-      <meta property="og:image" content="/public/bannersave.jpg"/>
+      <meta property="og:image" content="https://www.savehubonline.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fbannersave.dec8c1d6.jpg&w=1920&q=75"/>
       <meta property="og:url" content="https://www.savehubonline.com"/>
       <meta property="og:type" content="website"/>
       <meta name="twitter:card" content="summary_large_image"/>
       <meta name="twitter:site" content="@savehubonline"/>
       <meta name="twitter:title" content="Savehub - Save Your Money"/>
       <meta name="twitter:description" content="Savehub helps you save money with loot deals and discounts on various products."/>
-      <meta name="twitter:image" content="/public/bannersave.jpg"/>
+      <meta name="twitter:image" content="https://www.savehubonline.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fbannersave.dec8c1d6.jpg&w=1920&q=75"/>
       <link rel="canonical" href="https://www.savehubonline.com"/>
       <meta name="robots" content="index, follow" />
       </head>
