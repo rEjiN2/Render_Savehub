@@ -1,25 +1,31 @@
-
-"use client"
+import { Metadata } from "next";
 import { Kanit } from "next/font/google";
-import { QueryClient, QueryClientProvider } from 'react-query';
-
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from '@/components/footer/Footer' 
+import ClientProvider from "@/hooks/clientProvider";
 
 
 const kanit = Kanit({ subsets: ["latin"], weight: "500"  });
 
-const queryClient = new QueryClient();
+export const metadata: Metadata = {
+  title: {
+    absolute: "Accessories Savehub",
+    template: "Savehub Accessories Products deals",
+  },
+  description: "Loot deals on all Accessories Products Savehub Save hub savehubonline UP to 80% off on all electronic products",
+};
 
-export default function RootLayout({
+
+export default function AccessoriesLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <QueryClientProvider client={queryClient}>
+   <ClientProvider>
             {children}
-    </QueryClientProvider>
+   </ClientProvider>
+   
          
   );
 }

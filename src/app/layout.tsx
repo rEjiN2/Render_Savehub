@@ -10,7 +10,10 @@ const inter = Inter({ subsets: ["latin"] });
 const kanit = Kanit({ subsets: ["latin"], weight: "500"  });
 
 export const metadata: Metadata = {
-  title: "Savehub",
+  title: {
+    default:"Savehub",
+    template:"Loot deals on all Famous sites"
+  },
   description: "Savehub save your money loot deals everywhere",
 };
 
@@ -33,17 +36,17 @@ export default function RootLayout({
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="keywords" content="savehub, save hub ,deals, discounts, save money, loot deals, offers, shopping" />
       <meta name="author" content="Savehub Team" />
-      <meta property="og:title" content="Savehub - Save Your Money"/>
+      <meta property="og:title" content="Savehub - Save Your Money with exclusive discounts and deals"/>
       <meta property="og:description" content="Savehub helps you save money with loot deals and discounts on various products."/>
-      <meta property="og:image" content="/path/to/image.jpg"/>
-      <meta property="og:url" content="https://www.savehub.com"/>
+      <meta property="og:image" content="/bannersave.jpg"/>
+      <meta property="og:url" content="https://www.savehubonline.com"/>
       <meta property="og:type" content="website"/>
       <meta name="twitter:card" content="summary_large_image"/>
-      <meta name="twitter:site" content="@savehub"/>
+      <meta name="twitter:site" content="@savehubonline"/>
       <meta name="twitter:title" content="Savehub - Save Your Money"/>
       <meta name="twitter:description" content="Savehub helps you save money with loot deals and discounts on various products."/>
-      <meta name="twitter:image" content="/path/to/image.jpg"/>
-      <link rel="canonical" href="https://www.savehub.com"/>
+      <meta name="twitter:image" content="/bannersave.jpg"/>
+      <link rel="canonical" href="https://www.savehubonline.com"/>
       <meta name="robots" content="index, follow" />
       </head>
       
