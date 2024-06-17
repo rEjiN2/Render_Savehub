@@ -29,6 +29,7 @@ export default function RootLayout({
         <link rel='icon' href='/favicon.ico'  />
         <Script 
         async
+        id="adsbygoogle-init"
         src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7754509675429128`}
         crossOrigin="anonymous"
       strategy="afterInteractive"
