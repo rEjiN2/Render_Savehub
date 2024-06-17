@@ -5,6 +5,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from '@/components/footer/Footer' 
 import Head from "next/head";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 const kanit = Kanit({ subsets: ["latin"], weight: "500"  });
@@ -26,8 +27,12 @@ export default function RootLayout({
     <html lang="en">
       <Head>
         <link rel='icon' href='/favicon.ico'  />
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7754509675429128"
-     crossOrigin="anonymous"></script>
+        <Script 
+        async
+        src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7754509675429128`}
+        crossOrigin="anonymous"
+      strategy="afterInteractive"
+        />
       </Head>
        <head>
        
