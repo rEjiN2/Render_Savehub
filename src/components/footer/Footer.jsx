@@ -9,7 +9,7 @@ const Footer = () => {
            <div>
             <Image src={Logo} alt='SaveHub' width={70} />
            </div>
-           <div>© Developed by <span className="text-[#07b] font-bold text-lg">Rejin A</span></div>
+           <div className='hidden md:block'>© Developed by <span className="text-[#07b] font-bold text-lg">Rejin A</span></div>
            <div className='flex items-center cursor-pointer' >
          Connect - &nbsp;
          <Image src={Contact} alt='Connect' width={30} height={30} />
