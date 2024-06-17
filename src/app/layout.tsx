@@ -24,10 +24,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-       <head>
+      <Head>
         <link rel='icon' href='/favicon.ico'  />
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7754509675429128"
      crossOrigin="anonymous"></script>
+      </Head>
+       <head>
+       
      
        <meta name="google-adsense-account" content="ca-pub-7754509675429128"></meta>
        <meta name="savehub" content="Lootdeals in save save upto 90% off on all product" />
