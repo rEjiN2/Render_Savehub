@@ -55,18 +55,20 @@ const Accessories = () => {
         <div className="container mx-auto pt-10">
           <div className="grid gap-20 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
           {currentProducts.map((product:Product)=>(
- <div key={product.id} className="bg-white  rounded-lg shadow-lg h-[350px] relative">
- <div className="flex justify-between">
-<div className="price-tag z-50">₹ {product.price}.00 </div>
-<div className="price-tag z-50">{product.discount}% Off </div>
-</div>
-<Image src={product.image} alt="clothing" objectFit="cover" layout="fill" className="rounded-lg" />
-<div className="absolute bottom-0 w-full flex items-center justify-center">
-<Link href={product.link}>
-<h1 className="text-[#058] text-xl text-center bg-[#ffea00]  p-3 rounded cursor-pointer">Buy Now</h1>
-</Link>
-
-</div>
+  <div key={product.id} className="bg-white  rounded-lg shadow-lg h-[350px] relative group">
+  <div className="flex justify-between">
+    <div className="price-tag z-50">₹ {product.price} </div>
+    <div className="price-tag z-50">{product.discount}% Off </div>
+  </div>
+  <Image src={product.image} alt="clothingMen" objectFit="cover" layout="fill" className="rounded-lg" />
+  <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+   <span className="text-white text-md text-center">{product.name}</span>
+ </div>
+  <div className="absolute bottom-0 w-full flex items-center justify-center">
+   <Link href={product.link}>
+    <h1 className="text-[#058] text-xl text-center bg-[#ffea00]  p-3 rounded cursor-pointer">Buy Now</h1>
+   </Link>
+  </div>
 </div>
          ))}            
           </div>       

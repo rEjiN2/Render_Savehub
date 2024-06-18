@@ -67,7 +67,7 @@ const Offer = () => {
     {loading
             ? Array.from({ length: 5 }).map((_, index) => <LoadingSkeleton key={index} />)
             : products.map((product) => (
-                <div key={product.id} className="bg-white rounded-lg shadow-lg h-[350px] w-full max-w-xs relative">
+                <div key={product.id} className="bg-white rounded-lg shadow-lg h-[350px] w-full max-w-xs relative group">
                   <div className="flex justify-between">
                     <div className="price-tag z-50">₹ {product.price} </div>
                     <div className="price-tag z-50">{product.discount}% Off </div>
@@ -78,9 +78,12 @@ const Offer = () => {
                     // width={300} // Replace with actual width
                     // height={300} // Replace with actual height
                     layout="fill"
-                    objectFit="cover"
+                    objectFit="contain"
                     className="rounded-lg h-[248px]"
                   />
+                  <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+    <span className="text-white text-md text-center">{product.name}</span>
+  </div>
                   <button onClick={() => handleClick(product.link)} className="bg-black w-full mt-6 p-3 rounded-md absolute text-white bottom-0 ">Buy Now</button>
                 </div>
               ))}       
