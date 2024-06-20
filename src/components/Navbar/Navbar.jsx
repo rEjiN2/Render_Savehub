@@ -72,6 +72,12 @@ const Navbar = () => {
    Electronics</MenuButton>
    </Link>
           </Menu>
+          <Menu>
+          <Link href='/about'>
+         <MenuButton className="inline-flex items-center gap-2 rounded-md bg-gray-800 py-1.5 px-3 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[hover]:bg-gray-700 data-[open]:bg-gray-700 data-[focus]:outline-1 data-[focus]:outline-white">
+   About us</MenuButton>
+   </Link>
+          </Menu>
      </div>
       <div className='md:hidden ml-auto'>
         <FaBars className='text-2xl cursor-pointer' onClick={() => {
@@ -79,7 +85,7 @@ const Navbar = () => {
           setMenuOpen(!menuOpen)}} />
       </div>
       {menuOpen && (
-         <div className='absolute top-full left-0 w-full bg-gray-50 rounded-b-2xl shadow-lg z-10 md:hidden'>
+         <div className='absolute top-full left-0 w-full bg-gray-50 rounded-b-2xl shadow-lg z-999 md:hidden'>
          <div className='flex flex-col items-start p-4'>
            <div className='py-2 flex justify-between w-full'>
              <span>Clothing</span>
@@ -102,6 +108,9 @@ const Navbar = () => {
            </Link>
            <Link href='/electronics'>
            <div className='py-2 cursor-pointer'>Electronics</div>
+           </Link>
+           <Link href='/about'>
+           <div className='py-2 cursor-pointer'>About us</div>
            </Link>
          </div>
        </div>
