@@ -15,14 +15,14 @@ const AboutUs = () => {
 
                       <h1 className='text-slate-800 text-3xl text-center'>Welcome to <span className='text-purple-700'>SaveHub!</span> </h1>
 
-                      <p className='text-slate-800 mt-10 text-center'>At SaveHub, we're dedicated to bringing you the best loot deals from top online shopping destinations like Amazon, Flipkart, Myntra, and more. Our mission is simple: to help you save money while shopping online by providing the most amazing deals and discounts available across the internet.</p>
+                      <p className='text-slate-800 mt-10 text-center'>At SaveHub, we&apos;re dedicated to bringing you the best loot deals from top online shopping destinations like Amazon, Flipkart, Myntra, and more. Our mission is simple: to help you save money while shopping online by providing the most amazing deals and discounts available across the internet.</p>
                       <h1 className='text-slate-800 mt-10 text-2xl text-center'>Who We Are?</h1>
                       <p className='text-slate-800 mt-2 text-center'>SaveHub is a passionate team of deal hunters and shopping enthusiasts who understand the thrill of finding a great bargain. We constantly scour the web to bring you the latest and greatest deals, ensuring that you never miss out on an opportunity to save big. </p>
                       <h1 className='text-slate-800 mt-10 text-2xl text-center'>What We Do</h1>
                       <ol className='text-slate-800'>
                           <li className='text-slate-800 mt-2 text-center'>Curated Deals: We meticulously curate the best deals, discounts, and offers from a wide range of categories including electronics, fashion, home goods, and more.</li>
                           <li className='text-slate-800 mt-2 text-center '>Real-Time Updates: Our platform is updated in real-time to ensure you have access to the freshest deals as soon as they go live.</li>
-                          <li className='text-slate-800 mt-2 text-center'>Comprehensive Coverage: Whether you're shopping on Amazon, Flipkart, Myntra, or any other major online store, we've got you covered.</li>
+                          <li className='text-slate-800 mt-2 text-center'>Comprehensive Coverage: Whether you&apos;re shopping on Amazon, Flipkart, Myntra, or any other major online store, we&apos;ve got you covered.</li>
                       </ol>
                   </div>
                   <div className='absolute top-[200px] left-10 h-1/2 w-[1000px] bg-yellow-400 rounded-lg'>
@@ -35,14 +35,14 @@ const AboutUs = () => {
               <div className='w-screen  flex items-center justify-center'>
                   <div className='min-h-[300px] w-2/3 mt-10 bg-gray-100 rounded-lg z-10'>
                       <h1 className='text-slate-800 text-3xl mt-10 text-center'>Welcome to <span className='text-purple-700'>SaveHub!</span> </h1>
-                      <p className='text-slate-800 mt-2 text-center'>At SaveHub, we're dedicated to bringing you the best loot deals from top online shopping destinations like Amazon, Flipkart, Myntra, and more. Our mission is simple: to help you save money while shopping online by providing the most amazing deals and discounts available across the internet.</p>
+                      <p className='text-slate-800 mt-2 text-center'>At SaveHub, we&apos;re dedicated to bringing you the best loot deals from top online shopping destinations like Amazon, Flipkart, Myntra, and more. Our mission is simple: to help you save money while shopping online by providing the most amazing deals and discounts available across the internet.</p>
                       <h1 className='text-slate-800 mt-10 text-2xl text-center'>Who We Are?</h1>
                       <p className='text-slate-800 mt-2 text-center'>SaveHub is a passionate team of deal hunters and shopping enthusiasts who understand the thrill of finding a great bargain. We constantly scour the web to bring you the latest and greatest deals, ensuring that you never miss out on an opportunity to save big. </p>
                       <h1 className='text-slate-800 mt-10 text-2xl text-center'>What We Do</h1>
                       <ol className='text-slate-800'>
                           <li className='text-slate-800 mt-2 text-center'>Curated Deals: We meticulously curate the best deals, discounts, and offers from a wide range of categories including electronics, fashion, home goods, and more.</li>
                           <li className='text-slate-800 mt-2 text-center '>Real-Time Updates: Our platform is updated in real-time to ensure you have access to the freshest deals as soon as they go live.</li>
-                          <li className='text-slate-800 mt-2 text-center'>Comprehensive Coverage: Whether you're shopping on Amazon, Flipkart, Myntra, or any other major online store, we've got you covered.</li>
+                          <li className='text-slate-800 mt-2 text-center'>Comprehensive Coverage: Whether you&apos;re shopping on Amazon, Flipkart, Myntra, or any other major online store, we&apos;ve got you covered.</li>
                       </ol>
                   </div>
                  
