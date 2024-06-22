@@ -3,8 +3,8 @@ import React from 'react'
 
 const AboutUs = () => {
   return (
-    <div className='text-white flex items-center justify-center pt-5 flex-col'>
-        <div className='text-3xl underline'>
+    <div className='text-white flex items-center justify-center pt-10 flex-col'>
+        <div className='text-3xl underline mt-16'>
          AboutUs
         </div>
         

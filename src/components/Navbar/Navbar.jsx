@@ -13,6 +13,9 @@ const Navbar = () => {
   const toggleAccordion = () => {
     setIsOpen(!isOpen);
   };
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
   return (
    
    <div className='text-black bg-gray-50 h-20 rounded-2xl pl-5 flex items-center pr-3 relative'>
@@ -22,6 +25,12 @@ const Navbar = () => {
       </Link>
      </div>
      <div className='basis-2/3  items-center justify-between pr-4 hidden md:flex'>
+     <Menu>
+          <Link href='/about'>
+         <MenuButton className="inline-flex items-center gap-2 rounded-md bg-gray-800 py-1.5 px-3 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[hover]:bg-gray-700 data-[open]:bg-gray-700 data-[focus]:outline-1 data-[focus]:outline-white">
+   About us</MenuButton>
+   </Link>
+          </Menu>
     <Menu>
       
            <MenuButton className="inline-flex items-center gap-2 rounded-md bg-gray-800 py-1.5 px-3 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[hover]:bg-gray-700 data-[open]:bg-gray-700 data-[focus]:outline-1 data-[focus]:outline-white">
@@ -73,9 +82,9 @@ const Navbar = () => {
    </Link>
           </Menu>
           <Menu>
-          <Link href='/about'>
+          <Link href='/contactus'>
          <MenuButton className="inline-flex items-center gap-2 rounded-md bg-gray-800 py-1.5 px-3 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[hover]:bg-gray-700 data-[open]:bg-gray-700 data-[focus]:outline-1 data-[focus]:outline-white">
-   About us</MenuButton>
+  Contact Us</MenuButton>
    </Link>
           </Menu>
      </div>
@@ -97,20 +106,23 @@ const Navbar = () => {
            </div>
            <div className={`pl-4 ${isOpen ? '' : 'hidden'}`}>
             <Link href='/clothing/mens'>
-             <div className='py-2 cursor-pointer'>Men</div>
+             <div onClick={closeMenu} className='py-2 cursor-pointer'>Men</div>
              </Link>
              <Link href='/clothing/womens'>
-             <div className='py-2 cursor-pointer'>Women</div>
+             <div onClick={closeMenu} className='py-2 cursor-pointer'>Women</div>
              </Link>
            </div>
            <Link href='/accessories'>
-           <div className='py-2 cursor-pointer'>Accessories</div>
+           <div onClick={closeMenu} className='py-2 cursor-pointer'>Accessories</div>
            </Link>
            <Link href='/electronics'>
-           <div className='py-2 cursor-pointer'>Electronics</div>
+           <div onClick={closeMenu} className='py-2 cursor-pointer'>Electronics</div>
            </Link>
            <Link href='/about'>
-           <div className='py-2 cursor-pointer'>About us</div>
+           <div onClick={closeMenu} className='py-2 cursor-pointer'>About us</div>
+           </Link>
+           <Link href='/contactus'>
+           <div onClick={closeMenu} className='py-2 cursor-pointer'>Contact Us</div>
            </Link>
          </div>
        </div>
