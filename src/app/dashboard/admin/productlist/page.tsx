@@ -96,10 +96,10 @@ const ProductList = () => {
                 </td>
                 <td className="py-2 px-4 border-b">
                      
-                  <button onClick={()=>router.push(`/dashboard/admin/editProduct/${product.id}`)} className="mr-2 mb-1 bg-blue-500 text-white py-1 px-2 rounded">Edit</button>
+                  <button onClick={()=>router.push(`/dashboard/admin/editProduct/${product._id}`)} className="mr-2 mb-1 bg-blue-500 text-white py-1 px-2 rounded">Edit</button>
                       
 
-                  <button onClick={() => handleDelete(product.id)} className="bg-red-500 text-white py-1 px-2 rounded">Delete</button>
+                  <button onClick={() => handleDelete(product._id)} className="bg-red-500 text-white py-1 px-2 rounded">Delete</button>
                 </td>
               </tr>
             ))}

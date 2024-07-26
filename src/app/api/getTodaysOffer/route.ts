@@ -1,22 +1,19 @@
 import { NextRequest, NextResponse } from 'next/server';
-import pool from '@/utils/db';
+import connect from '@/utils/db';
+import Product from '@/models/Product'; // Adjust the path as needed
 
 export const dynamic = 'force-dynamic';
 
 export async function GET(req: NextRequest): Promise<NextResponse> {
     try {
-        const client = await pool.connect();
+        // Connect to the database
+        await connect();
 
-        const query = `
-            SELECT * FROM product 
-            WHERE discount > 70 
-            ORDER BY id DESC 
-            LIMIT 8;
-        `;
+        // Query for products with discount > 70, sorted by _id in descending order, limited to 8
+        const products = await Product.find({ discount: { $gt: 70 } })
+            .sort({ _id: -1 })
+            .limit(8);
 
-        const { rows: products } = await client.query(query);
-
-        client.release();
         return new NextResponse(JSON.stringify(products), { status: 200 });
     } catch (error) {
         console.error('Error fetching discounted products:', error);
