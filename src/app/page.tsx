@@ -31,7 +31,7 @@ export default function Home() {
        <div className="container mx-auto pt-5">
       
        {/* Banner Section  */}
-        <Image src={Banner} width={1440} height={300} alt="banner" style={{borderRadius:'25px'}} />
+        <Image src={Banner} width={1440} height={300} alt="banner" style={{borderRadius:'25px',zIndex:99}} />
        
         {/* Collection */}
         <section className="pt-10">

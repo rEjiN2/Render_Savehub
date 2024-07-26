@@ -6,6 +6,8 @@ import Navbar from "@/components/Navbar/Navbar";
 import Footer from '@/components/footer/Footer' 
 import Head from "next/head";
 import Script from "next/script";
+  // Adjust the import path as needed
+import ParticlesComponent from "@/components/Particles/Particle"
 
 const inter = Inter({ subsets: ["latin"] });
 const kanit = Kanit({ subsets: ["latin"], weight: "500"  });
@@ -59,12 +61,27 @@ export default function RootLayout({
       </head>
       
       <body className={kanit.className}>
-       <div  className="bg-[url('/skybg.jpg')] h-screen flex flex-col justify-between  overflow-auto">
-       <div className="pt-10 pl-10 pr-10">
-            <Navbar />
-            {children}
+      <div className="min-h-screen flex flex-col relative">
+          <ParticlesComponent
+            id="tsparticles"
+            style={{
+              position: 'fixed',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              zIndex: -1
+            }}
+          />
+          <div className="flex-grow z-10 relative">
+            <div className="pt-10 pl-10 pr-10">
+              <Navbar />
+              {children}
+            </div>
           </div>
-        <Footer/>
+          <div  className="z-10 relative">
+          <Footer  />
+          </div>
         </div>
         </body>
     </html>
