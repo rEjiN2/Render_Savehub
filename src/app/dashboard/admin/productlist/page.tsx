@@ -7,14 +7,14 @@ import useDeleteProduct from '@/hooks/useDeleteProduct';
 
 
 interface Product {
-    id:number;
-    name:string;
-    image: string;
-    category:string;
-    subcategory:string;
-    price:number;
-    discount:number;
-    link:string;
+  _id: string;  // Changed from id: number
+  name: string;
+  image: string;
+  category: string;
+  subcategory: string;
+  price: number;
+  discount: number;
+  link: string;
 }
 
 
@@ -49,8 +49,8 @@ const ProductList = () => {
     setCurrentPage((prev) => Math.min(prev + 1, totalPages));
   };
 
-  const handleDelete = (id: number) => {
-    deleteProductMutation.mutate(String(id));
+  const handleDelete = (id: string) => {
+    deleteProductMutation.mutate(id);
   };
 
   return (
@@ -80,7 +80,7 @@ const ProductList = () => {
           </thead>
           <tbody>
             {currentProducts.map((product: Product, index:number) => (
-              <tr key={product.id}>
+              <tr key={product._id}>
                 <td className="py-2 px-4 border-b">{startIndex + index + 1}</td>
                 <td className="py-2 px-4 border-b w-[250px]">{product.name}</td>
               
