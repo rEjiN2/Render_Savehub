@@ -83,19 +83,24 @@ const addProduct = async (product: Product) => {
   formData.append('discount', product.discount.toString());
   formData.append('link', product.link);
 
+  const headers: HeadersInit = {
+    "Content-Type": "application/json",
+  };
+
+  const apiKey = process.env.NEXT_PUBLIC_API_KEY;
+  if (apiKey) {
+    headers['x-api-key'] = apiKey;
+  }
   const response = await fetch('/api/proadadmin', {
     method: 'POST',
     body: formData,
-    headers:{
-      "Content-Type":"application/json",
-      'x-api-key': process.env.NEXT_PUBLIC_API_KEY,
-    }
+    headers: headers,
   });
 
   if (!response.ok) {
-    throw new Error('Failed to add product');
     setLoading(false)
     setResult('error')
+    throw new Error('Failed to add product');
   }
 
   return response.json();
