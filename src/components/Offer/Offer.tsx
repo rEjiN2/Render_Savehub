@@ -43,12 +43,17 @@ const Offer = () => {
   useEffect(() => {
     const fetchOffer = async () => {
       try {
+        const headers: HeadersInit = {
+          'Content-Type': 'application/json',
+        };
+
+        const apiKey = process.env.NEXT_PUBLIC_API_KEY;
+        if (apiKey) {
+          headers['x-api-key'] = apiKey;
+        }
         const res = await fetch('/api/getTodaysOffer', {
           method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            'x-api-key': process.env.NEXT_PUBLIC_API_KEY,
-          },
+          headers: headers,
         });
 
         const response = await res.json();
