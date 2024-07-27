@@ -15,7 +15,7 @@ import useElectronicsProducts from '@/hooks/useElectronicProducts'
 import Link from 'next/link'
 
 interface Product {
-  id: number;
+  _id: string;
   name: string;
   image: string;
   category: string;
@@ -45,7 +45,7 @@ const Electronics = () => {
 
   return (
     <div className='pt-10'>
-        <Image src={Banner} alt='banner' width={1440} style={{borderRadius:'20px'}} />
+        <Image src={Banner} alt='banner' width={1440} style={{borderRadius:'20px',zIndex:99}} />
 
       
         <section className="pt-10">
@@ -54,7 +54,7 @@ const Electronics = () => {
           <div className="grid gap-20 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
          
           {currentProducts.map((product:Product)=>(
- <div key={product.id} className="bg-white  rounded-lg shadow-lg h-[350px] relative group">
+ <div key={product._id} className="bg-white  rounded-lg shadow-lg h-[350px] relative group">
  <div className="flex justify-between">
 <div className="price-tag z-50">₹ {product.price}.00 </div>
 <div className="price-tag z-50">{product.discount}% Off </div>

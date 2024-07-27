@@ -6,9 +6,10 @@ export const dynamic = 'force-dynamic';
 
 export async function GET(req: NextRequest): Promise<NextResponse> {
     try {
-        // Connect to the database
+        // Connect to the database 
         await connect();
-
+       
+        
         // Query for products with discount > 70, sorted by _id in descending order, limited to 8
         const products = await Product.find({ discount: { $gt: 70 } })
             .sort({ _id: -1 })

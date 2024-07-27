@@ -39,6 +39,7 @@ const Offer = () => {
     router.push(url);
   };
 
+
   useEffect(() => {
     const fetchOffer = async () => {
       try {
@@ -46,6 +47,7 @@ const Offer = () => {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
+            'x-api-key': process.env.NEXT_PUBLIC_API_KEY,
           },
         });
 
