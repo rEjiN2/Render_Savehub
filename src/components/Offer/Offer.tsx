@@ -69,12 +69,12 @@ const Offer = () => {
   }, []);
 
   return (
-    <div className="container pt-10 flex flex-wrap justify-center gap-5 w-full">
+    <div className="container pt-10 flex flex-wrap justify-center gap-4 w-full">
         
     {loading
             ? Array.from({ length: 5 }).map((_, index) => <LoadingSkeleton key={index} />)
             : products.map((product) => (
-                <div key={product.id} className="bg-white rounded-lg shadow-lg h-[350px] w-full max-w-xs relative group">
+                <div key={product.id} className="bg-white rounded-lg shadow-lg h-[350px] w-[200px] max-w-xs relative group">
                   <div className="flex justify-between">
                     <div className="price-tag z-50">₹ {product.price} </div>
                     <div className="price-tag z-50">{product.discount}% Off </div>

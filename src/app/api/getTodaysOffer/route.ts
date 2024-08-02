@@ -12,8 +12,7 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
         
         // Query for products with discount > 70, sorted by _id in descending order, limited to 8
         const products = await Product.find({ discount: { $gt: 70 } })
-            .sort({ _id: -1 })
-            .limit(8);
+            .sort({ _id: -1 });
 
         return new NextResponse(JSON.stringify(products), { status: 200 });
     } catch (error) {
