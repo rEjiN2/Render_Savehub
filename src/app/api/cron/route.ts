@@ -6,11 +6,21 @@ import cheerio from 'cheerio';
 
 export const dynamic = 'force-dynamic';
 
-async function scrapeSite() {
+interface Product {
+    name: string;
+    category: string;
+    subcategory: string | null;
+    price: number;
+    discount: number;
+    link: string | undefined;
+    image: string | undefined;
+}
+
+async function scrapeSite(): Promise<Product[]> {
     const url = `https://www.offertag.in`;
     const { data } = await axios.get(url);
     const $ = cheerio.load(data);
-    const results = [];
+    const results: Product[] = [];
 
     $('.featured-item-container').each((i, elem) => {
         const title = $(elem).find('.deal-title h4').text().trim();
@@ -21,7 +31,7 @@ async function scrapeSite() {
         const discount = $(elem).find('.discount span').text().replace('%', '').replace('Off', '').trim();
         const link = $(elem).find('.shop-btn a').attr('data-alt-href');
 
-        let subCategory = null;
+        let subCategory: string | null = null;
         if (category.toLowerCase() === 'clothing') {
             const lowerTitle = title.toLowerCase();
             if (lowerTitle.includes('women') || lowerTitle.includes('womens')) {
@@ -53,8 +63,8 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
         if (req.headers.get('Authorization') !== `Bearer ${process.env.CRON_SECRET}`) {
             return new NextResponse(JSON.stringify({ error: 'Unautherized Access' }), {
                 status: 403
-            })
-          }
+            });
+        }
         await connect();
 
         // Scrape the site
