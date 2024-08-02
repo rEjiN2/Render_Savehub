@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
 // List of allowed origins (you can expand this)
-const allowedOrigins = ['https://www.savehubonline.com', 'https://savehubonline.com' ,"http://localhost:3000"]
+const allowedOrigins = ['https://www.savehubonline.com', 'https://savehubonline.com' ,"http://localhost:3001","http://localhost:3000"]
 
 export function middleware(request: NextRequest) {
   if (request.nextUrl.pathname.startsWith('/api/')) {

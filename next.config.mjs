@@ -15,7 +15,7 @@ const nextConfig = {
   },
   reactStrictMode: true,
   images: {
-    domains: ['localhost', 'rukminim2.flixcart.com', 'm.media-amazon.com', 'rb.gy'],
+    domains: ['localhost', 'rukminim2.flixcart.com', 'm.media-amazon.com', 'rb.gy','www.offertag.in',],
   },
 };
 
