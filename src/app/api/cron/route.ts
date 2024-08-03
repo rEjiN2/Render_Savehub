@@ -60,11 +60,11 @@ async function scrapeSite(): Promise<Product[]> {
 export async function GET(req: NextRequest): Promise<NextResponse> {
     try {
         // Connect to the database
-        if (req.headers.get('Authorization') !== `Bearer ${process.env.CRON_SECRET}`) {
-            return new NextResponse(JSON.stringify({ error: 'Unauthorized Access' }), {
-                status: 401
-            });
-        }
+        // if (req.headers.get('Authorization') !== `Bearer ${process.env.CRON_SECRET}`) {
+        //     return new NextResponse(JSON.stringify({ error: 'Unauthorized Access' }), {
+        //         status: 401
+        //     });
+        // }
         await connect();
 
         // Scrape the site
