@@ -61,7 +61,7 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
     try {
         // Connect to the database
         if (req.headers.get('Authorization') !== `Bearer ${process.env.CRON_SECRET}`) {
-            return new NextResponse(JSON.stringify({ error: 'Unautherized Access' }), {
+            return new NextResponse(JSON.stringify({ error: 'Unauthorized Access' }), {
                 status: 403
             });
         }
