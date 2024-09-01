@@ -34,14 +34,14 @@ export default function Home() {
         <Image src={Banner} width={1440} height={300} alt="banner" style={{borderRadius:'25px',zIndex:99}} />
        
         {/* Collection */}
-        <section className="pt-10">
+        <section className="pt-10 z-0">
         <h1 className="text-zinc-50 text-5xl text-center underline pt-10">Collections</h1>
         <div className="container mx-auto pt-10">
           <div className="grid gap-20 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           <div className="bg-white p-6 rounded-lg shadow-lg h-[350px] relative">
     <Image src={Cloth} alt="clothing" objectFit="cover" layout="fill" className="rounded-lg" />
     <div className="absolute inset-0 flex items-center justify-center">
-        <Link href='/clothing/mens'>
+        <Link href='/category/clothing'>
         <h1 className="text-white text-xl text-center bg-black bg-opacity-50 p-3 rounded cursor-pointer">Clothing</h1>
         </Link>
     </div>
@@ -49,7 +49,7 @@ export default function Home() {
 <div className="bg-white p-6 rounded-lg shadow-lg h-[350px] relative">
     <Image src={Accessories} alt="clothing" objectFit="cover" layout="fill" className="rounded-lg" />
     <div className="absolute inset-0 flex items-center justify-center">
-    <Link href='/accessories'>
+    <Link href='/category/accessories'>
         <h1 className="text-white text-xl text-center bg-black bg-opacity-50 p-3 rounded cursor-pointer">Accessories</h1>
     </Link>
     </div>
@@ -57,7 +57,7 @@ export default function Home() {
 <div className="bg-white p-6 rounded-lg shadow-lg h-[350px] relative">
     <Image src={Elecgtronics} alt="clothing" objectFit="cover" layout="fill" className="rounded-lg" />
     <div className="absolute inset-0 flex items-center justify-center">
-    <Link href='/electronics'>
+    <Link href='/category/electronics'>
         <h1 className="text-white text-xl text-center bg-black bg-opacity-50 p-3 rounded cursor-pointer">Electronics</h1>
     </Link>
     </div>

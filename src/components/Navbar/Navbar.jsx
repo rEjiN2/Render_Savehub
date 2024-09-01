@@ -1,6 +1,6 @@
 "use client"
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Logo from '../../../public/logo.png'
 import { FaBars } from 'react-icons/fa';
 import { Menu, MenuButton, MenuItem, MenuItems,Transition  } from '@headlessui/react'
@@ -10,6 +10,33 @@ import Link from 'next/link';
 const Navbar = () => {
   const [menuOpen,setMenuOpen] = useState(false)
   const [isOpen, setIsOpen] = useState(false);
+  const [categories,setCategories] = useState([])
+
+  useEffect(()=>{
+   const fetchCategories = async()=>{
+    try{
+      const fetCategories = await fetch('/api/getAllCategories',{
+        method:"GET",
+        headers:{
+          'Content-Type':"application/json",
+          'x-api-key': process.env.NEXT_PUBLIC_API_KEY,
+        }
+      })
+
+    const categoryList = await fetCategories.json()
+    setCategories(categoryList);
+    console.log(categoryList,"=====cat======");
+    
+      
+    }catch(error){
+    console.log(error);
+    
+    }
+   }
+
+   fetchCategories();
+  },[])
+
   const toggleAccordion = () => {
     setIsOpen(!isOpen);
   };
@@ -35,7 +62,7 @@ const Navbar = () => {
       
            <MenuButton className="inline-flex items-center gap-2 rounded-md bg-gray-800 py-1.5 px-3 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[hover]:bg-gray-700 data-[open]:bg-gray-700 data-[focus]:outline-1 data-[focus]:outline-white">
 
-          Clothing
+          Categories
           <ChevronDownIcon className="size-5 mt-1" />
           </MenuButton>
           <Transition
@@ -45,40 +72,39 @@ const Navbar = () => {
           leave="transition ease-in duration-100"
           leaveFrom="opacity-100 scale-100"
           leaveTo="opacity-0 scale-95"
+          
         >
            <MenuItems
   anchor="bottom end"
-  className="w-52 origin-top-right rounded-xl border border-white/5 bg-gray-800 p-1 text-sm/6 text-white [--anchor-gap:var(--spacing-1)] focus:outline-none"
+  className="w-52 origin-top-right rounded-xl border border-white/5 bg-gray-800 p-1 text-sm/6 text-white [--anchor-gap:var(--spacing-1)] focus:outline-none z-10"
 >
-  <MenuItem>
-  <Link href='/clothing/mens'>
-    <button className="group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 bg-gray-800 text-white hover:bg-gray-700 focus:bg-gray-700">
-      Mens
-    </button>
-    </Link>
-  </MenuItem>
-  <MenuItem>
+  {categories.map((category,index)=>{
+    const [firstWord] = category.split(/[\s&\.]/);
+    return(
+      <MenuItem key={index}>
+      <Link href={`/category/${firstWord}`}>
+        <button className="group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 bg-gray-800 text-white hover:bg-gray-700 focus:bg-gray-700">
+         {firstWord}
+        </button>
+        </Link>
+      </MenuItem>
+  )})}
+ 
+  {/* <MenuItem>
   <Link href='/clothing/womens'>
     <button className="group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 bg-gray-800 text-white hover:bg-gray-700 focus:bg-gray-700">
       Women
     </button>
     </Link>
-  </MenuItem>
+  </MenuItem> */}
 </MenuItems>
 
          </Transition>
         </Menu>
-         <Menu>
-         <Link href='/accessories'>
+        <Menu>
+          <Link href='/faq'>
          <MenuButton className="inline-flex items-center gap-2 rounded-md bg-gray-800 py-1.5 px-3 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[hover]:bg-gray-700 data-[open]:bg-gray-700 data-[focus]:outline-1 data-[focus]:outline-white">
-          Accessories
-          </MenuButton>
-          </Link>
-          </Menu>
-          <Menu>
-          <Link href='/electronics'>
-         <MenuButton className="inline-flex items-center gap-2 rounded-md bg-gray-800 py-1.5 px-3 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[hover]:bg-gray-700 data-[open]:bg-gray-700 data-[focus]:outline-1 data-[focus]:outline-white">
-   Electronics</MenuButton>
+  FAQ</MenuButton>
    </Link>
           </Menu>
           <Menu>
@@ -94,32 +120,33 @@ const Navbar = () => {
           setMenuOpen(!menuOpen)}} />
       </div>
       {menuOpen && (
-         <div className='absolute top-full left-0 w-full bg-gray-50 rounded-b-2xl shadow-lg z-999 md:hidden'>
+         <div className='absolute top-full left-0 w-full bg-gray-50 rounded-b-2xl shadow-lg z-999 md:hidden' style={{zIndex:100}} >
          <div className='flex flex-col items-start p-4'>
            <div className='py-2 flex justify-between w-full'>
-             <span>Clothing</span>
+             <span>Category</span>
              <button onClick={toggleAccordion}>
                <svg className="h-5 w-5 mt-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                  <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
                </svg>
              </button>
            </div>
-           <div className={`pl-4 ${isOpen ? '' : 'hidden'}`}>
-            <Link href='/clothing/mens'>
-             <div onClick={closeMenu} className='py-2 cursor-pointer'>Men</div>
+           <div className={`pl-4 ${isOpen ? '' : 'hidden'}`} style={{zIndex:100}}>
+           {categories.map((category,index)=>{
+    const [firstWord] = category.split(/[\s&\.]/);
+    return(
+            <Link href={`/category/${firstWord}`}>
+             <div onClick={closeMenu} className='py-2 cursor-pointer' style={{zIndex:100}}>{firstWord}</div>
              </Link>
-             <Link href='/clothing/womens'>
-             <div onClick={closeMenu} className='py-2 cursor-pointer'>Women</div>
-             </Link>
+  )})}
+
+            
            </div>
-           <Link href='/accessories'>
-           <div onClick={closeMenu} className='py-2 cursor-pointer'>Accessories</div>
-           </Link>
-           <Link href='/electronics'>
-           <div onClick={closeMenu} className='py-2 cursor-pointer'>Electronics</div>
-           </Link>
+           
            <Link href='/about'>
            <div onClick={closeMenu} className='py-2 cursor-pointer'>About us</div>
+           </Link>
+           <Link href='/faq'>
+           <div onClick={closeMenu} className='py-2 cursor-pointer'>FAQ</div>
            </Link>
            <Link href='/contactus'>
            <div onClick={closeMenu} className='py-2 cursor-pointer'>Contact Us</div>
