@@ -10,9 +10,9 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
         await connect();
         const { searchParams } = new URL(req.url);
         const category = searchParams.get('category');
-        console.log(category, "===cat===");
+       
 
-        const pipeline = [];
+        const pipeline: any[] = [];
 
         // If category is provided, add it to the pipeline
         if (category) {
@@ -26,14 +26,14 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
         // Add the sorting stage
         pipeline.push({
             $sort: {
-                createdAt: -1
+                createdAt: -1 as 1 | -1 // Ensuring type compatibility
             }
         });
 
         // Find all products where category matches case-insensitively
         const products = await Product.aggregate(pipeline);
 
-        console.log(products, "===pro======");
+        
 
         return new NextResponse(JSON.stringify(products), { status: 200 });
     } catch (error) {
