@@ -134,7 +134,7 @@ const Navbar = () => {
            {categories.map((category,index)=>{
     const [firstWord] = category.split(/[\s&\.]/);
     return(
-            <Link href={`/category/${firstWord}`}>
+            <Link href={`/category/${firstWord}`} key={index}>
              <div onClick={closeMenu} className='py-2 cursor-pointer' style={{zIndex:100}}>{firstWord}</div>
              </Link>
   )})}
