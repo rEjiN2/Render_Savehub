@@ -50,7 +50,7 @@ console.log(category, "==Extracted Category===");
 
       
         <section className="pt-10">
-        <h1 className="text-zinc-50 text-5xl text-center underline pt-10">Mens</h1>
+        <h1 className="text-zinc-50 text-5xl text-center underline pt-10">{category}</h1>
         <div className="container mx-auto pt-10">
           <div className="grid gap-20 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
 {currentProducts.map((product:Product)=>(
