@@ -1,7 +1,7 @@
 import { useQuery } from 'react-query';
 import axios from 'axios';
 
-const useMenProducts = (category: string) => {
+const useMenProducts = (category: any) => {
   return useQuery(['products', category], async () => {
     const { data } = await axios.get(`/api/getMenClothing?category=${category}`, {
       headers: {
