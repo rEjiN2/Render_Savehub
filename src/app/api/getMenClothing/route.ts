@@ -10,31 +10,34 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
         await connect();
         const { searchParams } = new URL(req.url);
         const category = searchParams.get('category');
-         console.log(category,"===cat===");
-         
-         const pipeline = [
-            {
-              $match: {
-                category: { $regex: new RegExp(category, 'i') }
-              }
-            },
-            {
-                $sort:{
-                    createdAt:-1
-                }
-            }
-          ];
-          
-          // Find all products where category matches case-insensitively
-          const products = await Product.aggregate(pipeline);
-          
+        console.log(category, "===cat===");
 
-        console.log(products,"===pro======");
-        
+        const pipeline = [];
+
+        // If category is provided, add it to the pipeline
+        if (category) {
+            pipeline.push({
+                $match: {
+                    category: { $regex: new RegExp(category, 'i') }
+                }
+            });
+        }
+
+        // Add the sorting stage
+        pipeline.push({
+            $sort: {
+                createdAt: -1
+            }
+        });
+
+        // Find all products where category matches case-insensitively
+        const products = await Product.aggregate(pipeline);
+
+        console.log(products, "===pro======");
 
         return new NextResponse(JSON.stringify(products), { status: 200 });
     } catch (error) {
-        console.error('Error fetching  products:', error);
-        return new NextResponse(JSON.stringify({ error: 'Error fetching  products' }), { status: 500 });
+        console.error('Error fetching products:', error);
+        return new NextResponse(JSON.stringify({ error: 'Error fetching products' }), { status: 500 });
     }
 }
