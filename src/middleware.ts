@@ -24,24 +24,25 @@ export async function middleware(request: NextRequest) {
         { status: 403, headers: { 'content-type': 'application/json' } }
       )
     }
-
+    let country = 'Unknown';
     let clientIp = request.headers.get('x-forwarded-for') || request.ip || '127.0.0.1';
     clientIp = clientIp.split(',')[0].trim();
     console.log(clientIp,request.headers.get('x-forwarded-for'),"ip");
     
     if (clientIp === '::1' || clientIp === '127.0.0.1' || clientIp.startsWith('192.168.') || clientIp.startsWith('10.')) {
       console.log('Local development detected, skipping country check');
+      country = 'AE';
       return NextResponse.next();
     }
 
     try {
       const response = await axios.get(`https://ipinfo.io/${clientIp}?token=${process.env.IPINFO_TOKEN}`);
-      const country = response.data.country;
+      country = response.data.country;
       console.log(country,"country");
       
     } catch (error) {
       console.log(error);
-      
+      // country = 'Unknown';
     }
     // Rate limiting (simple implementation)
     // const ip = request.ip ?? '127.0.0.1'
@@ -53,8 +54,13 @@ export async function middleware(request: NextRequest) {
     //   )
     // }
 
-    // If all checks pass, allow the request
-    return NextResponse.next()
+   // Create a new response
+   const response = NextResponse.next();
+
+   // Set the country as a header
+   response.headers.set('X-User-Country', country);
+
+   return response;
   }
 }
 
