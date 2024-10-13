@@ -1,6 +1,5 @@
 "use client"
 import Image from "next/image";
-import { useEffect, useState } from "react";
 import Banner from '../../public/bannersave.jpg'
 import Cloth from '../../public/clothing.jpg'
 import Accessories from '../../public/access.jpg'
@@ -25,24 +24,7 @@ const LoadingSkeleton = () => (
 
 
 export default function Home() {
-  const [country, setCountry] = useState<string | null>(null);
-
-  useEffect(() => {
-    async function fetchCountry() {
-      try {
-        const response = await fetch('/api/getCountry');
-        const data = await response.json();
-        setCountry(data.country);
-        console.log(country,"hi");
-        
-      } catch (error) {
-        console.error('Error fetching country:', error);
-        setCountry('Unknown');
-      }
-    }
-
-    fetchCountry();
-  }, []);
+ 
   
 
   return (
