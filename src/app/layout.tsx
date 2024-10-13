@@ -61,8 +61,8 @@ export default function RootLayout({
       </head>
       
       <body className={kanit.className}>
-      <div className="min-h-screen flex flex-col relative">
-          <ParticlesComponent
+      <div className="min-h-screen flex flex-col relative bg-[#0A0A0A]">
+          {/* <ParticlesComponent
             id="tsparticles"
             style={{
               position: 'fixed',
@@ -72,7 +72,7 @@ export default function RootLayout({
               height: '100%',
               zIndex: -1
             }}
-          />
+          /> */}
           <div className="flex-grow z-10 relative">
             <div className="pt-10 pl-10 pr-10">
               <Navbar />
