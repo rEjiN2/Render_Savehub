@@ -1,12 +1,11 @@
-import { NextRequest, NextResponse, } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import connect from '@/utils/db';
 import Product from '@/models/Product'; // Adjust the path as needed
-import { NextApiRequest } from 'next';
 
 export const dynamic = 'force-dynamic';
 
-export async function GET(req: NextApiRequest): Promise<NextResponse> {
-    const country = req.headers['x-user-country'] || 'Unknown';
+export async function GET(req: NextRequest): Promise<NextResponse> {
+    const country = req.headers.get('x-user-country') || 'Unknown';
     try {
         // Connect to the database 
         await connect();
