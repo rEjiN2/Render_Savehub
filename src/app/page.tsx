@@ -70,7 +70,7 @@ export default function Home() {
         </section>
            {/* Today's Offer */}
            <section className="pt-10">
-    <h1 className="text-zinc-50 text-5xl text-center underline pt-10">Today&apos;s Best Offer in {country}</h1>
+    <h1 className="text-zinc-50 text-5xl text-center underline pt-10">Today&apos;s Best Offer in </h1>
     <Offer/>
     </section>
        </div>

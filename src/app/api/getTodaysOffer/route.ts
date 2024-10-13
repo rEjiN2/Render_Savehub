@@ -16,7 +16,12 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
         const products = await Product.find({ discount: { $gt: 70 } })
             .sort({ _id: -1 });
 
-        return new NextResponse(JSON.stringify(products), { status: 200 });
+            const productsWithCountry = products.map((product) => ({
+                ...product.toObject(), // Convert Mongoose document to plain JavaScript object
+                country,
+            }));
+
+        return new NextResponse(JSON.stringify(productsWithCountry), { status: 200 });
     } catch (error) {
         console.error('Error fetching discounted products:', error);
         return new NextResponse(JSON.stringify({ error: 'Error fetching discounted products' }), { status: 500 });
