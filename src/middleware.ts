@@ -24,6 +24,14 @@ export function middleware(request: NextRequest) {
       )
     }
 
+    let clientIp = request.headers.get('x-forwarded-for') || request.ip || '127.0.0.1';
+    clientIp = clientIp.split(',')[0].trim();
+    console.log(clientIp,request.headers.get('x-forwarded-for'),"ip");
+    
+    if (clientIp === '::1' || clientIp === '127.0.0.1' || clientIp.startsWith('192.168.') || clientIp.startsWith('10.')) {
+      console.log('Local development detected, skipping country check');
+      return NextResponse.next();
+    }
     // Rate limiting (simple implementation)
     // const ip = request.ip ?? '127.0.0.1'
     // const rateLimit = request.headers.get('x-rate-limit')
