@@ -56,10 +56,24 @@ const Offer = () => {
           headers: headers,
         });
 
-        const response = await res.json();
-        setProducts(response);
+        if (!res.ok) {
+          setProducts([]);
+          return;
+        }
+
+        const response: unknown = await res.json();
+        const normalizedProducts = Array.isArray(response)
+          ? response
+          : Array.isArray((response as any)?.products)
+            ? (response as any).products
+            : Array.isArray((response as any)?.data)
+              ? (response as any).data
+              : [];
+
+        setProducts(normalizedProducts as Product[]);
       } catch (error: any) {
-        alert(error.message);
+        console.error(error);
+        setProducts([]);
       } finally {
         setLoading(false);
       }

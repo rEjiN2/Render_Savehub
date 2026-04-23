@@ -23,13 +23,27 @@ const Navbar = () => {
         }
       })
 
-    const categoryList = await fetCategories.json()
-    setCategories(categoryList);
-    console.log(categoryList,"=====cat======");
+    if (!fetCategories.ok) {
+      setCategories([]);
+      return;
+    }
+
+    const categoryList = await fetCategories.json();
+    const normalizedCategories = Array.isArray(categoryList)
+      ? categoryList
+      : Array.isArray(categoryList?.categories)
+        ? categoryList.categories
+        : Array.isArray(categoryList?.data)
+          ? categoryList.data
+          : [];
+
+    setCategories(normalizedCategories);
+    console.log(normalizedCategories,"=====cat======");
     
       
     }catch(error){
     console.log(error);
+    setCategories([]);
     
     }
    }
@@ -74,14 +88,20 @@ const Navbar = () => {
           leaveTo="opacity-0 scale-95"
           
         >
-           <MenuItems
+          <MenuItems
   anchor="bottom end"
   className="w-52 origin-top-right rounded-xl border border-white/5 bg-gray-800 p-1 text-sm/6 text-white [--anchor-gap:var(--spacing-1)] focus:outline-none z-10"
 >
-  {categories.map((category,index)=>{
-    const [firstWord] = category.split(/[\s&\.]/);
+  {(Array.isArray(categories) ? categories : []).map((category)=>{
+    const categoryText =
+      typeof category === 'string'
+        ? category
+        : (category?.name ?? category?.title ?? String(category ?? ''));
+
+    const [firstWord] = categoryText.split(/[\s&\.]/);
+    if (!firstWord) return null;
     return(
-      <MenuItem key={index}>
+      <MenuItem key={firstWord}>
       <Link href={`/category/${firstWord}`}>
         <button className="group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 bg-gray-800 text-white hover:bg-gray-700 focus:bg-gray-700">
          {firstWord}
@@ -131,8 +151,14 @@ const Navbar = () => {
              </button>
            </div>
            <div className={`pl-4 ${isOpen ? '' : 'hidden'}`} style={{zIndex:100}}>
-           {categories.map((category,index)=>{
-    const [firstWord] = category.split(/[\s&\.]/);
+           {(Array.isArray(categories) ? categories : []).map((category,index)=>{
+    const categoryText =
+      typeof category === 'string'
+        ? category
+        : (category?.name ?? category?.title ?? String(category ?? ''));
+
+    const [firstWord] = categoryText.split(/[\s&\.]/);
+    if (!firstWord) return null;
     return(
             <Link href={`/category/${firstWord}`} key={index}>
              <div onClick={closeMenu} className='py-2 cursor-pointer' style={{zIndex:100}}>{firstWord}</div>
